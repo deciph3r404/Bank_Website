@@ -1,0 +1,65 @@
+{% extends 'mbase.html' %}
+
+{% block title %}Transfer Money{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">Transfer Money</h2>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Transfer Details</h5>
+                    <form method="post" action="{% url 'transfer_money' %}" id="formid">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="from_account" class="form-label">From Account</label>
+                            <select class="form-select" id="from_account" name="from_account" required>
+                                <option selected disabled>Select Account</option>
+                                <option value="71265432">Account 1 (71265432)</option>
+                                <option value="98765432">Account 2 (98765432)</option>
+                                <!-- Add more accounts as needed -->
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="to_account" class="form-label">To Account</label>
+                            <input type="text" class="form-control" id="to_account" name="to_account" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ifsc_code" class="form-label">IFSC Code</label>
+                            <input type="text" class="form-control" id="ifsc_code" name="ifsc_code" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input type="number" class="form-control" id="amount" name="amount" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="remarks" class="form-label">Remarks</label>
+                            <textarea class="form-control" id="remarks" name="remarks"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Transfer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// Get the form element
+const form = document.querySelector('form');
+
+// Add an event listener to the form submission
+form.addEventListener('submit', function(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Simulate the transfer process (replace with your actual transfer logic)
+    setTimeout(function() {
+        // Transfer successful, show the alert
+        alert('Money has been transferred successfully!');
+    }, 
+    10000); // simulate a 2-second delay
+});
+
+</script>
+{% endblock body %}

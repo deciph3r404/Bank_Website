@@ -1,0 +1,323 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock title %}
+{% block body %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  body {    
+      transition: background-color 0.5s ease-in-out;    
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+       font-family: "Lato", sans-serif;
+  }
+
+  /* Header Styles */
+  .hero-image {
+      background-image: url('https://images.squarespace-cdn.com/content/v1/5b4774e5aa49a10f1f0065d1/1533911981327-ZLTMRC9CCWBO9I3WP7F4/online.png?format=2500w');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      animation: hero-image-animation 2s ease-in-out; 
+  }
+  @keyframes hero-image-animation {
+    0% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  .hero-content {
+      max-width: 800px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      border-radius: 10px;
+  }
+
+  .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+  }
+
+  .hero-content p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    background-color: #f59a08;
+    color: black;
+      border-color: #089b08;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+  }
+
+  .btn-primary:hover {
+      background-color: #000f3c;
+      color: rgb(255, 255, 255);
+      border-color: #077f07;
+  }
+
+  /* Services Section Styles */
+  .services-section {
+      padding: 50px 0;
+      background-color: #f7f7f7;
+  }
+
+  .service-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out;
+      animation: service-card-animation 2s ease-in-out; 
+  }
+  @keyframes service-card-animation {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .service-card:hover {
+      transform: translateY(-5px);
+  }
+
+  .service-card h5 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+  }
+
+  .service-card p {
+      font-size: 0.9rem;
+      color: #666;
+  }
+
+  .service-card .btn-primary {
+    font-size: 1.0rem;
+      background-color: #f59a08;
+      color: black;
+      border-color: #089b08;
+      border-radius: 5px;
+  }
+
+  .service-card .btn-primary:hover {
+      background-color: #00303e;
+      color: white;
+      border-color: #077f07;
+  }
+
+ 
+  /* Styling for the footer */
+  .footer {
+      background-color: #ecfbfd;
+      color: #000000;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      text-align: center; /* Center align content */
+  }
+  
+  .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center; /* Center content horizontally */
+      max-width: 1200px; /* Limit max width for larger screens */
+      margin: 0 auto; /* Center align within the max-width container */
+  }
+  
+  .footer-section {
+    /* color: black; */
+      flex: 1 1 100px; /* Flex-grow, flex-shrink, flex-basis */
+      margin-bottom: 20px;
+  }
+  
+  .footer-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #160082;
+  }
+  
+  .footer-section ul {
+      list-style-type: none;
+      padding-left: 0;
+  }
+  
+  .footer-section ul li {
+      margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+      color: #b78d03;
+  }
+  
+  .footer-social-icons {
+      margin-top: 20px;
+  }
+  
+  .footer-social-icons a {
+      color: #00200a;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      transition: color 0.3s ease;
+  }
+  
+  .footer-social-icons a:hover {
+      color: #767c04;
+  }
+  
+  .footer-legal {
+      margin-top: 20px;
+      text-align: center;
+      color: #042c00;
+  }
+  
+  @media (max-width: 768px) {
+      .footer-content {
+          flex-direction: column;
+      }
+      .footer-section {
+          flex: 1 1 100%;
+      }
+  }
+  #about p{
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="hero-image">
+<div class="hero-content">
+  <h1>Welcome to Unity Bank</h1>
+  <p class="lead">Your gateway to secure and convenient banking services</p>
+  <a href="create_account" class="btn btn-primary btn-lg">Open an Account</a>
+</div>
+</div>
+
+<div class="container my-5">
+<section id="services" class="services-section">
+  <div class="row">
+      <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+              <h5>Personal Banking</h5>
+              <p>Manage your personal finances with ease. Explore our range of savings accounts, personal loans, and more.</p>
+              <a href="#" class="btn btn-primary">Explore Personal Banking</a>
+          </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+              <h5>Business Banking</h5>
+              <p>Enhance your business operations with our business accounts, merchant services, and business loans.</p>
+              <a href="#" class="btn btn-primary">Explore Business Banking</a>
+          </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+              <h5>Investment Services</h5>
+              <p>Grow your wealth with our investment products, including mutual funds, stocks, and retirement planning solutions.</p>
+              <a href="#" class="btn btn-primary">Explore Investments</a>
+          </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+          <div class="service-card">
+              <h5>Digital Banking</h5>
+              <p>Bank anytime, anywhere with our secure and convenient digital banking services, including mobile banking and online payments.</p>
+              <a href="#" class="btn btn-primary">Explore Digital Banking</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section id="about" class="my-5">
+  <div class="row">
+      <div class="col-md-6">
+          <h2>About Us</h2>
+          <p>Unity Bank is committed to providing exceptional banking services to individuals and businesses. With a legacy of trust and innovation, we strive to meet the financial needs of our customers through personalized solutions and cutting-edge technology.</p>
+          <a href="#" class="btn btn-primary">Learn More About Unity Bank</a>
+      </div>
+      <div class="col-md-6">
+          <img src="https://alister-bank.cmsmasters.net/wp-content/uploads/2015/11/2.jpg" class="img-fluid" alt="About Us Image">
+      </div>
+  </div>
+</section>
+
+
+</div>
+
+<footer class="footer">
+  <div class="container">
+      <div class="footer-content">
+          <div class="footer-section">
+              <h3>About Us</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla felis neque, convallis eu orci eu, blandit malesuada mi.</p>
+              <div class="footer-social-icons">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin"></i></a>
+              </div>
+          </div>
+          <div class="footer-section">
+              <h3>Quick Links</h3>
+              <ul>
+                  <li><a href="#">Overview</a></li>
+                  <li><a href="#">Financials</a></li>
+                  <li><a href="#">Governance</a></li>
+                  <li><a href="#">Investor Info</a></li>
+                  <li><a href="#">Help Center</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h3>Services</h3>
+              <ul>
+                  <li><a href="#">Personal Internet Banking</a></li>
+                  <li><a href="#">Corporate Internet Banking</a></li>
+                  <li><a href="#">Mobile Banking</a></li>
+                  <li><a href="#">Online Tax / payment</a></li>
+                  <li><a href="#">Life Insurance</a></li>
+              </ul>
+          </div>
+          <div class="footer-section">
+              <h3>Contact Us</h3>
+              <ul>
+                  <li><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</li>
+                  <li><i class="fas fa-phone-alt"></i> +1234567890</li>
+                  <li><i class="fas fa-envelope"></i> info@example.com</li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-legal">
+          <p>&copy; 2024 Unity Bank. All rights reserved.</p>
+          <p>Designed and Developed by <a href="https://www.decipher404.com" target=”_blank>decipher404.com</a></p>
+            </div>
+      </div>
+  </div>
+</footer>
+{% endblock body %} 
+
+
+
+
+

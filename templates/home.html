@@ -1,0 +1,146 @@
+{% extends 'mbase.html' %}
+
+{% block title %}Account Dashboard{% endblock title %}
+
+{% block body %}
+<style>
+    #cards ul li a{
+        background-color: rgb(4, 79, 126);
+    }
+    #account_service ul li a{
+        background-color: rgb(4, 79, 126);
+    }
+    </style>
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="p-4 bg-light rounded-3 text-center shadow-sm">
+                <h1 class="display-5 fw-bold">Welcome, {{ user.username }}!</h1>
+                <p class="lead">Your one-stop shop for all your banking needs</p>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Account Summary</h5>
+                    <ul class="list-unstyled">
+                        <li>Account Number: <strong>71265432</strong></li>
+                        <li>IFSC Code: <strong>3456981AEGVVE04</strong></li>
+                        <li>Balance: <strong>$1,000</strong></li>
+                        <li>Account Type: <strong>Saving</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body" id="cards">
+                    <h5 class="card-title" >Quick Actions</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">Transfer Money</a></li>
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">Pay Bills</a></li>
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">View Transaction History</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Account Alerts</h5>
+                    <ul class="list-unstyled">
+                        <li>No new alerts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body" id="account_service">
+                    <h5 class="card-title">Account Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">Update Profile</a></li>
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">Change Password</a></li>
+                        <li><a href="#" class="btn btn-primary w-100 mb-2">Account Settings</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Transactions</h5>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>01/01/2024</td>
+                                <td>ATM Withdrawal</td>
+                                <td>-$100</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>31/12/2023</td>
+                                <td>Salary Credit</td>
+                                <td>$2000</td>
+                                <td>Completed</td>
+                            </tr>
+                            <tr>
+                                <td>29/12/2023</td>
+                                <td>Electricity Bill</td>
+                                <td>-$150</td>
+                                <td>Completed</td>
+                            </tr>
+                            <!-- Add more transactions as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+{% comment %} {% extends 'mbase.html' %} 
+
+{% block title %}accounts status{% endblock title %}
+
+ {% block body %} 
+
+
+ <div style="background-image: url('https://img.freepik.com/premium-photo/top-view-office-table-desk-workspace-with-calculator-black-pen-laptop-blue_101276-159.jpg'); background-size: cover; height: 85vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <h1>Account Status</h1>
+    <div class="mb-1">
+        <label for="formGroupExampleInput2" class="form-label text-center" style="display: inline-block; width: 100%; text-align: center;">Account Number</label>        
+        <button style="background-color: #4CAF50; color: #ffffff; border: none; border-radius: 5px; padding: 10px 50px; width: 100%; cursor: pointer;">71265432</button>          
+    </div>
+    <div class="mb-1">
+        <label for="formGroupExampleInput2" class="form-label text-center" style="display: inline-block; width: 100%; text-align: center;">IFSC Code</label>        
+        <button style="background-color: #4CAF50; color: #ffffff; border: none; border-radius: 5px; padding: 10px 50px; width: 100%; cursor: pointer;">3456981AEGVVE04</button>          
+    </div>
+    <div class="mb-1">
+        <label for="formGroupExampleInput2" class="form-label text-center" style="display: inline-block; width: 100%; text-align: center;">Balance in your Account</label>        
+        <button style="background-color: #4CAF50; color: #ffffff; border: none; border-radius: 5px; padding: 10px 50px; width: 100%; cursor: pointer;">$1,000</button>          
+    </div>
+    <div class="mb-1">
+        <label for="formGroupExampleInput2" class="form-label text-center" style="display: inline-block; width: 100%; text-align: center;">Account Type</label>        
+        <button style="background-color: #4CAF50; color: #ffffff; border: none; border-radius: 5px; padding: 10px 50px; width: 100%; cursor: pointer;">Saving</button>          
+    </div>
+{% endblock body %} {% endcomment %}

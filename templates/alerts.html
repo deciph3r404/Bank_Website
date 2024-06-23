@@ -1,0 +1,29 @@
+{% extends 'mbase.html' %}
+
+{% block title %}Account Alerts{% endblock title %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mb-4">Account Alerts</h2>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Alerts</h5>
+                    <ul class="list-group">
+                        {% if alerts %}
+                            {% for alert in alerts %}
+                                <li class="list-group-item">
+                                    <strong>{{ alert.date }}</strong>: {{ alert.message }}
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <li class="list-group-item">No new alerts</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}
